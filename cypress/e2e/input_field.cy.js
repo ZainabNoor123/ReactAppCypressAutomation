@@ -3,7 +3,8 @@ describe('home Page Input Fields', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000/')
     })
-const formBody=cy.get('tbody').find('tr')
+    const formBody=cy.get('tbody').find('tr')
+
     it('with correct Input data',()=>{
       formBody.eq(0).contains('Please write an animal:')
       cy.get("input#animal").type("Tiger")
