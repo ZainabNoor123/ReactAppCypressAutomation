@@ -3,6 +3,7 @@ describe('home Page Input Fields', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000/')
     })
+
     const formBody=cy.get('tbody').find('tr')
 
     it('with correct Input data',()=>{
