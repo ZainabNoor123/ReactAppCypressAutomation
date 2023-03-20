@@ -1,31 +1,41 @@
-describe('home page Labels', () => {
+describe('My cool MadLibs Home page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
   })
 
   
-  context("heading check",()=>{
+  context("My cool MadLibs labels",()=>{
 
-    beforeEach(() => {
+    it("page Load successfully",() => {
+      //Arrange
       cy.visit('http://localhost:3000/')
+    
+
+    //Act
+    //None: Loading only
+
+    //Assert
+    //Navbar
+
+      cy.get('nav').should('be.visible')
+        .within(()=>{
+          cy.get('h1')
+            .should('contain.text','My Cool MadLibs')
+
+          cy.get('a')
+            .should('be.visible')
+            .should('contain.text','Exit Site')
+        })
+
+    //Form
+
+      cy.get('h2').should('contain.text','Enter Your Choices!')
+      cy.get('table').should('be.visible')
+      cy.get('tr').should('have.length', 10)
+      cy.get('button')
+          .should('contain.text', 'Complete')
+      .should('be.disabled')
+    
     })
-
-    it('the h1 contains the correct context',()=>{
-      cy.get('h1').should('exist').contains('My Cool MadLibs')
-    })
-
-    it("exit Link working",()=>{
-      cy.get('a').click()
-      //cy.location('pathname').should('eq', 'https://://www.google.com/?gws_rd=ssl')
-    })
-
-    it('the h2 contains the correct context',()=>{
-      cy.get('h2').contains('Enter Your Choices!')
-    })
- })
-
-
-  
-  
   })
-  
+})
